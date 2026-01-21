@@ -1,0 +1,24 @@
+<div *ngIf="pokemon; else loading">
+  <h2>{{ pokemon.name | uppercase }}</h2>
+
+  <img
+    [src]="pokemon.sprites.front_default"
+    alt="{{ pokemon.name }}"
+  />
+
+  <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+  <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+
+  <h3>Tipos</h3>
+  <ul>
+    <li *ngFor="let t of pokemon.types">
+      {{ t.type.name }}
+    </li>
+  </ul>
+
+  <a routerLink="/">← Voltar</a>
+</div>
+
+<ng-template #loading>
+  <p>Carregando Pokémon...</p>
+</ng-template>
