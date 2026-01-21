@@ -1,9 +1,0 @@
-<h2>Lista de Pokémon</h2>
-
-<ul>
-  <li *ngFor="let p of pokemons; let i = index">
-    <a [routerLink]="['/pokemon', i + 1]">
-      {{ p.name }}
-    </a>
-  </li>
-</ul>
