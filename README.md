@@ -91,5 +91,5 @@ Necessário apenas para componentes como modals e dropdowns:
 ## 👤 Autor
 
 * **Aluno:** Aristides Jeronimo de Brito Neto
-* **Disciplina:** Desenvolvimento Web Frontend
+* **Disciplina:** Desenvolvimento Web Front-End
 * **Instituição:** IFRN — Campus Parnamirim
