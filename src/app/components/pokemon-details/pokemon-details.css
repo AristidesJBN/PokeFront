@@ -3,7 +3,6 @@
   padding: 32px 0;
 }
 
-/* Card principal */
 .details-card {
   max-width: 420px;
   margin: 0 auto;
@@ -14,13 +13,11 @@
   text-align: center;
 }
 
-/* Nome */
 h2 {
   margin-bottom: 16px;
   letter-spacing: 1px;
 }
 
-/* Imagem */
 img {
   width: 120px;
   height: 120px;
@@ -28,7 +25,6 @@ img {
   margin-bottom: 16px;
 }
 
-/* Info básica */
 .info {
   display: flex;
   justify-content: space-around;
@@ -39,7 +35,6 @@ img {
   font-size: 0.95rem;
 }
 
-/* Tipos */
 h3 {
   margin-top: 24px;
   margin-bottom: 8px;
@@ -61,7 +56,6 @@ h3 {
   text-transform: capitalize;
 }
 
-/* Voltar */
 .back {
   display: inline-block;
   margin-top: 24px;
@@ -74,7 +68,6 @@ h3 {
   text-decoration: underline;
 }
 
-/* Loading */
 .loading {
   text-align: center;
   padding: 32px;
@@ -166,7 +159,6 @@ h3 {
   color: #1f2937;
 }
 
-/* Types especiais da API */
 .types li.stellar {
   background-color: #0ea5e9;
 }

@@ -1,17 +1,14 @@
-/* Container implícito do componente */
 :host {
   display: block;
   padding: 24px 0;
 }
 
-/* Título */
 h2 {
   text-align: center;
   margin-bottom: 16px;
   font-weight: 600;
 }
 
-/* Lista */
 ul {
   max-width: 500px;
   margin: 0 auto;
@@ -22,7 +19,6 @@ ul {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Itens */
 li {
   padding: 8px 0;
   border-bottom: 1px solid #e5e7eb;
@@ -32,7 +28,6 @@ li:last-child {
   border-bottom: none;
 }
 
-/* Links da lista */
 a {
   text-decoration: none;
   color: #2563eb;
