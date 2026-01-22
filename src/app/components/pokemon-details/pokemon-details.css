@@ -1,0 +1,176 @@
+:host {
+  display: block;
+  padding: 32px 0;
+}
+
+/* Card principal */
+.details-card {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Nome */
+h2 {
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+/* Imagem */
+img {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 16px;
+}
+
+/* Info básica */
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin: 16px 0;
+}
+
+.info p {
+  font-size: 0.95rem;
+}
+
+/* Tipos */
+h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.types {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.types li {
+  padding: 6px 12px;
+  background: #e5e7eb;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+/* Voltar */
+.back {
+  display: inline-block;
+  margin-top: 24px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 32px;
+}
+
+.types li {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.types li.normal {
+  background-color: #9ca3af;
+}
+
+.types li.fighting {
+  background-color: #b91c1c;
+}
+
+.types li.flying {
+  background-color: #60a5fa;
+}
+
+.types li.poison {
+  background-color: #a855f7;
+}
+
+.types li.ground {
+  background-color: #d97706;
+}
+
+.types li.rock {
+  background-color: #78716c;
+}
+
+.types li.bug {
+  background-color: #84cc16;
+  color: #1f2937;
+}
+
+.types li.ghost {
+  background-color: #6b21a8;
+}
+
+.types li.steel {
+  background-color: #94a3b8;
+  color: #1f2937;
+}
+
+.types li.fire {
+  background-color: #ef4444;
+}
+
+.types li.water {
+  background-color: #3b82f6;
+}
+
+.types li.grass {
+  background-color: #22c55e;
+}
+
+.types li.electric {
+  background-color: #facc15;
+  color: #1f2937;
+}
+
+.types li.psychic {
+  background-color: #ec4899;
+}
+
+.types li.ice {
+  background-color: #38bdf8;
+  color: #1f2937;
+}
+
+.types li.dragon {
+  background-color: #6366f1;
+}
+
+.types li.dark {
+  background-color: #374151;
+}
+
+.types li.fairy {
+  background-color: #f9a8d4;
+  color: #1f2937;
+}
+
+/* Types especiais da API */
+.types li.stellar {
+  background-color: #0ea5e9;
+}
+
+.types li.unknown {
+  background-color: #64748b;
+}

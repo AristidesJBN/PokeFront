@@ -1,9 +1,48 @@
-<h2>Lista de Pokémon</h2>
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="Buscar Pokémon por nome ou ID"
+    [(ngModel)]="search"
+    (keyup.enter)="searchPokemon()"
+  />
 
-<ul>
+  <button (click)="searchPokemon()">Buscar</button>
+
+  <button
+    *ngIf="search"
+    class="clear"
+    (click)="resetSearch()"
+  >
+    Limpar
+  </button>
+</div>
+
+
+
+<p *ngIf="loading">Carregando...</p>
+<p *ngIf="notFound">Pokémon não encontrado 😢</p>
+
+<ul *ngIf="!loading">
   <li *ngFor="let p of pokemons; let i = index">
-    <a [routerLink]="['/pokemon', i + 1]">
+    <a [routerLink]="['/pokemon', p.name]">
       {{ p.name }}
     </a>
   </li>
 </ul>
+
+<div
+  class="pagination"
+  *ngIf="!search && !loading"
+>
+  <button (click)="prevPage()" [disabled]="currentPage === 1">
+    ◀ Anterior
+  </button>
+
+  <span>
+    Página {{ currentPage }} de {{ totalPages }}
+  </span>
+
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Próxima ▶
+  </button>
+</div>

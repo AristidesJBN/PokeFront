@@ -1,4 +1,4 @@
-<div *ngIf="pokemon; else loading">
+<div *ngIf="pokemon; else loading" class="details-card">
   <h2>{{ pokemon.name | uppercase }}</h2>
 
   <img
@@ -6,19 +6,25 @@
     alt="{{ pokemon.name }}"
   />
 
-  <p><strong>Altura:</strong> {{ pokemon.height }}</p>
-  <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+  <div class="info">
+    <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+    <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+  </div>
 
   <h3>Tipos</h3>
-  <ul>
-    <li *ngFor="let t of pokemon.types">
+  <ul class="types">
+    <li
+      *ngFor="let t of pokemon.types"
+      [ngClass]="t.type.name"
+    >
       {{ t.type.name }}
     </li>
   </ul>
 
-  <a routerLink="/">← Voltar</a>
+
+  <a class="back" routerLink="/">← Voltar</a>
 </div>
 
 <ng-template #loading>
-  <p>Carregando Pokémon...</p>
+  <p class="loading">Carregando Pokémon...</p>
 </ng-template>
