@@ -6,15 +6,21 @@ import { Injectable } from '@angular/core';
 })
 export class PokemonService {
 
-  private apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+  private readonly apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
   constructor(private http: HttpClient) {}
 
-  getPokemons() {
-    return this.http.get<any>(`${this.apiUrl}?limit=20`);
+  /** Lista paginada */
+  getPokemons(limit: number, offset: number) {
+    return this.http.get<any>(
+      `${this.apiUrl}?limit=${limit}&offset=${offset}`
+    );
   }
 
-  getPokemonById(id: string) {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  /** Busca por ID ou nome */
+  getPokemon(idOrName: string) {
+    return this.http.get<any>(
+      `${this.apiUrl}/${idOrName.toLowerCase()}`
+    );
   }
 }

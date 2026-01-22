@@ -20,13 +20,14 @@ export class PokemonDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-  const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
 
-  if (id) {
-    this.pokemonService.getPokemonById(id).subscribe(data => {
+    if (id) {
+      this.pokemonService.getPokemon(id).subscribe(data => {
       this.pokemon = data;
     });
+
+    }
   }
-}
 
 }
