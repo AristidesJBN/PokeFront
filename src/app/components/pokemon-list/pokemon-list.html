@@ -2,19 +2,8 @@
   <input
     type="text"
     placeholder="Buscar Pokémon por nome ou ID"
-    [(ngModel)]="search"
-    (keyup.enter)="searchPokemon()"
+    [formControl]="searchControl"
   />
-
-  <button (click)="searchPokemon()">Buscar</button>
-
-  <button
-    *ngIf="search"
-    class="clear"
-    (click)="resetSearch()"
-  >
-    Limpar
-  </button>
 </div>
 
 

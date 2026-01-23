@@ -21,4 +21,10 @@ export class PokemonService {
       `${this.apiUrl}/${idOrName.toLowerCase()}`
     );
   }
+
+  getAllPokemons() {
+    return this.http.get<any>(
+      `${this.apiUrl}?limit=100000&offset=0`
+    );
+  }
 }

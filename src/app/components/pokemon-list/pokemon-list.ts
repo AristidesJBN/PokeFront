@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { PokemonService } from '../../services/pokemon';
+import { debounceTime, distinctUntilChanged, switchMap, tap, catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule],
   templateUrl: './pokemon-list.html',
   styleUrls: ['./pokemon-list.css']
 })
@@ -16,6 +18,9 @@ export class PokemonListComponent implements OnInit {
   pokemons: any[] = [];
 
   search: string = '';
+
+  searchControl = new FormControl('');
+  allPokemonsCache: any[] | null = null;
 
   limit = 15;
   offset = 0;
@@ -29,6 +34,39 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPokemons();
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      tap(val => {
+        this.search = val || '';
+        if (!this.search.trim()) {
+          this.resetSearch();
+        }
+      }),
+      switchMap(term => {
+        const q = (term || '').trim().toLowerCase();
+        if (!q) {
+          return of(null);
+        }
+        this.loading = true;
+        this.notFound = false;
+        if (this.allPokemonsCache) {
+          const filtered = this.allPokemonsCache.filter((p: any) => p.name.startsWith(q));
+          return of(filtered);
+        }
+        return this.pokemonService.getAllPokemons().pipe(
+          map(res => res.results || []),
+          tap(results => this.allPokemonsCache = results),
+          map(results => results.filter((p: any) => p.name.startsWith(q))),
+            catchError(() => of([]))
+        );
+      })
+      ).subscribe(results => {
+        if (results === null) return;
+        this.pokemons = results as any[];
+        this.loading = false;
+        this.notFound = !results || (results as any[]).length === 0;
+      });
   }
 
   loadPokemons() {
