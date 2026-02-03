@@ -14,3 +14,7 @@ body {
 a {
   color: inherit;
 }
+
+main { 
+  padding-bottom: 80px; 
+}
